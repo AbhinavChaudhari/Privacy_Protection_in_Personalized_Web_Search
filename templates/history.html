@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block mainbody %}
+    {% block tablecss %}
+    <style>
+table {
+    margin-top:20px;
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+    {% endblock tablecss %}
+
+    <div class="container" >
+        <a href="{% url 'homepage' %} " style="background-color:purple;  padding:10px 20px;" ><button style="margin-top:20px;color:white;" type="button">Search</button>
+        </a>
+        <table id="table_id" class="display">
+    <thead>
+        <tr>
+            <th>No </th>
+            <th>User </th>
+            <th>Visited </th>
+            <th>Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for i in his %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{i.user}}</td>
+            <td>{{i.search}}</td>
+            <td>{{i.date}}</td>
+        </tr>
+        {% endfor %}
+       
+    </tbody>
+</table>
+    </div>
+{% endblock mainbody %}
